@@ -1,0 +1,18 @@
+import type React from "react"
+import { cn } from "@/lib/utils"
+
+interface AdminDashboardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  heading: string
+  text?: string
+  children?: React.ReactNode
+}
+
+export function AdminDashboardHeader({ heading, text, children, className, ...props }: AdminDashboardHeaderProps) {
+  return (
+    <div className={cn("flex flex-col gap-1 pb-6", className)} {...props}>
+      <h1 className="text-2xl font-bold tracking-tight">{heading}</h1>
+      {text && <p className="text-muted-foreground">{text}</p>}
+      {children}
+    </div>
+  )
+}
